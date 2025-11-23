@@ -8,12 +8,17 @@ from pathlib import Path
 
 # --- Configuration & Model Loading ---
 
-# 🚨 Path Fix: Use absolute path construction for robustness 🚨
-# This ensures the model is found whether running locally or on Streamlit Cloud.
+# 🚨 FINAL PATH FIX: Use .resolve() for a guaranteed absolute path 🚨
+from pathlib import Path
+
 # 1. Get the directory of the current script (src/)
 BASE_DIR = Path(__file__).resolve().parent
-# 2. Construct the full path: BASE_DIR / ".." / "models" / "best_mobilenet_model.keras"
-CLASSIFICATION_MODEL_PATH = BASE_DIR / ".." / "models" / "best_mobilenet_model.keras"
+# 2. Construct the full path using Path operators (BASE_DIR / ".." / "models" / ...)
+# 3. Use .resolve() to clean up the '..' and get the absolute path
+CLASSIFICATION_MODEL_PATH = (BASE_DIR / ".." / "models" / "best_mobilenet_model.keras").resolve()
+
+# We convert to str() when passing to load_model, which is the correct approach
+# ...
 
 IMG_SIZE = (224, 224)
 CLASS_NAMES = ['Bird', 'Drone'] 
