@@ -8,7 +8,7 @@ from tensorflow.keras.preprocessing.image import img_to_array
 
 # 🚨 IMPORTANT: Set this path to your winning model file 🚨
 # The MobileNetV2 winner (97.21% accuracy) is the one to use.
-CLASSIFICATION_MODEL_PATH = 'best_mobilenet_model.keras' 
+CLASSIFICATION_MODEL_PATH = 'models/best_mobilenet_model.keras'
 # If you renamed it to 'best_model_classification.keras', change the path above.
 
 IMG_SIZE = (224, 224)
