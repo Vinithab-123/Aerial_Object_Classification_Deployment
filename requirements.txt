@@ -1,0 +1,5 @@
+# Contents of requirements.txt
+tensorflow
+streamlit
+numpy
+pillow
